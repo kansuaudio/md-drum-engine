@@ -1,0 +1,101 @@
+cmake_minimum_required(VERSION 3.22)
+set(CMAKE_OSX_DEPLOYMENT_TARGET "12.0" CACHE STRING "Minimum macOS")
+set(CMAKE_OSX_ARCHITECTURES "arm64" CACHE STRING "CPU architecture")
+project(MachinedrumM4L VERSION 1.0.5 LANGUAGES CXX)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+set(MODULEDRUM_ROOT "${CMAKE_SOURCE_DIR}/vendor/ModuleDrum" CACHE PATH "ModuleDrum source")
+set(MODULEDRUM_BUILD "${MODULEDRUM_ROOT}/build" CACHE PATH "Built ModuleDrum")
+set(MAX_SDK_ROOT "${CMAKE_SOURCE_DIR}/vendor/max-sdk-base" CACHE PATH "Max SDK base")
+set(MD_DEVICE_OUTPUT_DIRECTORY "${CMAKE_SOURCE_DIR}/device" CACHE PATH "Native external bundle output directory")
+# Windows builds the ModuleDrum core from source in this tree (MSVC, static CRT,
+# as ModuleDrum's own Windows release). macOS keeps linking the prebuilt
+# per-architecture static libraries produced by tools/build_universal.py.
+if(WIN32)
+  set(_md_core_default ON)
+else()
+  set(_md_core_default OFF)
+endif()
+option(MD_CORE_FROM_SOURCE "Build ModuleDrum's core libraries in this tree" ${_md_core_default})
+if(MSVC)
+  # Same static runtime as ModuleDrum and the Max SDK scripts: no VC++ redistributable.
+  set(CMAKE_POLICY_DEFAULT_CMP0091 NEW)
+  cmake_policy(SET CMP0091 NEW)
+  set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreaded$<$<CONFIG:Debug>:Debug>")
+  add_compile_definitions(_USE_MATH_DEFINES NOMINMAX _CRT_SECURE_NO_WARNINGS WIN_VERSION MAXAPI_USE_MSCRT)
+  add_compile_options(/utf-8 /bigobj)
+endif()
+find_package(Threads REQUIRED)
+add_library(md_dependencies INTERFACE)
+target_include_directories(md_dependencies INTERFACE "${MODULEDRUM_ROOT}/src/md" "${MODULEDRUM_ROOT}/src/core" "${CMAKE_SOURCE_DIR}/src")
+if(MD_CORE_FROM_SOURCE)
+  set(MNM_BUILD_PLUGIN OFF CACHE BOOL "" FORCE)
+  set(MNM_BUILD_TESTS OFF CACHE BOOL "" FORCE)
+  add_subdirectory("${MODULEDRUM_ROOT}" "${CMAKE_BINARY_DIR}/moduledrum" EXCLUDE_FROM_ALL)
+  target_link_libraries(md_dependencies INTERFACE mdcore mnmcore musashi Threads::Threads)
+else()
+  target_link_libraries(md_dependencies INTERFACE
+    "${MODULEDRUM_BUILD}/src/md/libmdcore.a"
+    "${MODULEDRUM_BUILD}/src/core/libmnmcore.a"
+    "${MODULEDRUM_BUILD}/ext/musashi/libmusashi.a"
+    "${MODULEDRUM_BUILD}/dsp56300/dsp56kEmu/libdsp56kEmu.a"
+    "${MODULEDRUM_BUILD}/dsp56300/dsp56kBase/libdsp56kBase.a"
+    "${MODULEDRUM_BUILD}/dsp56300/asmjit/libasmjit.a" Threads::Threads)
+endif()
+add_executable(engine-smoke tools/engine_smoke.cpp)
+target_link_libraries(engine-smoke PRIVATE md_dependencies)
+add_executable(fx-regression tools/fx_regression.cpp)
+target_link_libraries(fx-regression PRIVATE md_dependencies)
+add_executable(native-audit tools/native_audit_regression.cpp)
+target_link_libraries(native-audit PRIVATE md_dependencies)
+add_executable(render-script tools/render_script.cpp)
+target_link_libraries(render-script PRIVATE md_dependencies)
+if(APPLE)
+  set(AUTHOR_DOMAIN "local.machinedrum")
+  set(BUNDLE_IDENTIFIER "mdcoreengine")
+  set(PACKAGE_VERSION "${PROJECT_VERSION}")
+  set(COPYRIGHT_STRING "AGPL-3.0; ModuleDrum contributors and M4L integration")
+  set(EXCLUDE_FROM_COLLECTIVES "no")
+  add_library(mdengine MODULE src/md_external.cpp)
+  target_include_directories(mdengine PRIVATE "${MAX_SDK_ROOT}/c74support/max-includes" "${MAX_SDK_ROOT}/c74support/msp-includes")
+  target_link_libraries(mdengine PRIVATE md_dependencies "${MAX_SDK_ROOT}/c74support/msp-includes/MaxAudioAPI.framework")
+  # Max API is provided by the host executable; its SDK framework is not a
+  # runtime dependency (MaxAPIImpl.framework is not shipped in Max.app).
+  file(STRINGS "${MAX_SDK_ROOT}/c74support/max-includes/c74_linker_flags.txt" _max_raw_flags)
+  separate_arguments(_max_flags UNIX_COMMAND "${_max_raw_flags}")
+  target_link_options(mdengine PRIVATE ${_max_flags})
+  set_target_properties(mdengine PROPERTIES PREFIX "" OUTPUT_NAME "mdcoreengine~" BUNDLE TRUE BUNDLE_EXTENSION "mxo" LIBRARY_OUTPUT_DIRECTORY "${MD_DEVICE_OUTPUT_DIRECTORY}" MACOSX_BUNDLE_INFO_PLIST "${MAX_SDK_ROOT}/script/Info.plist.in" MACOSX_BUNDLE_GUI_IDENTIFIER "local.machinedrum.mdcoreengine" MACOSX_BUNDLE_BUNDLE_VERSION "${PROJECT_VERSION}")
+  add_custom_command(TARGET mdengine POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy "${MAX_SDK_ROOT}/script/PkgInfo" "$<TARGET_BUNDLE_DIR:mdengine>/Contents/PkgInfo" COMMAND /usr/bin/codesign --force --sign - "$<TARGET_BUNDLE_DIR:mdengine>" VERBATIM)
+  # Keep the focus helper independent of the sound engine so Max can load it
+  # without replacing or relinking an already-loaded mdcoreengine~ binary.
+  function(add_parameter_focus_helper)
+    set(BUNDLE_IDENTIFIER "mdparameterfocus")
+    configure_file("${MAX_SDK_ROOT}/script/Info.plist.in" "${CMAKE_CURRENT_BINARY_DIR}/mdparameterfocus-Info.plist.in" @ONLY)
+    add_library(mdparameterfocus MODULE src/md_parameter_focus.cpp)
+    target_include_directories(mdparameterfocus PRIVATE "${MAX_SDK_ROOT}/c74support/max-includes")
+    target_link_options(mdparameterfocus PRIVATE ${_max_flags})
+    set_target_properties(mdparameterfocus PROPERTIES PREFIX "" OUTPUT_NAME "mdparameterfocus" BUNDLE TRUE BUNDLE_EXTENSION "mxo" LIBRARY_OUTPUT_DIRECTORY "${MD_DEVICE_OUTPUT_DIRECTORY}" MACOSX_BUNDLE_INFO_PLIST "${CMAKE_CURRENT_BINARY_DIR}/mdparameterfocus-Info.plist.in" MACOSX_BUNDLE_GUI_IDENTIFIER "local.machinedrum.mdparameterfocus" MACOSX_BUNDLE_BUNDLE_VERSION "${PROJECT_VERSION}")
+    add_custom_command(TARGET mdparameterfocus POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy "${MAX_SDK_ROOT}/script/PkgInfo" "$<TARGET_BUNDLE_DIR:mdparameterfocus>/Contents/PkgInfo" COMMAND /usr/bin/codesign --force --sign - "$<TARGET_BUNDLE_DIR:mdparameterfocus>" VERBATIM)
+  endfunction()
+  add_parameter_focus_helper()
+
+elseif(WIN32)
+  # Windows Max externals: .mxe64 DLLs linked against the SDK's import libraries.
+  # Max freezes them into the .amxd beside the macOS .mxo bundles.
+  set(MAX_WIN_LIBS "${MAX_SDK_ROOT}/c74support/max-includes/x64/MaxAPI.lib")
+  set(MSP_WIN_LIBS "${MAX_SDK_ROOT}/c74support/msp-includes/x64/MaxAudio.lib")
+  add_library(mdengine MODULE src/md_external.cpp)
+  target_include_directories(mdengine PRIVATE "${MAX_SDK_ROOT}/c74support/max-includes" "${MAX_SDK_ROOT}/c74support/msp-includes")
+  target_link_libraries(mdengine PRIVATE md_dependencies "${MAX_WIN_LIBS}" "${MSP_WIN_LIBS}")
+  set_target_properties(mdengine PROPERTIES PREFIX "" OUTPUT_NAME "mdcoreengine~" SUFFIX ".mxe64"
+    LIBRARY_OUTPUT_DIRECTORY "${MD_DEVICE_OUTPUT_DIRECTORY}" LIBRARY_OUTPUT_DIRECTORY_RELEASE "${MD_DEVICE_OUTPUT_DIRECTORY}")
+  add_library(mdparameterfocus MODULE src/md_parameter_focus.cpp)
+  target_include_directories(mdparameterfocus PRIVATE "${MAX_SDK_ROOT}/c74support/max-includes")
+  target_link_libraries(mdparameterfocus PRIVATE "${MAX_WIN_LIBS}")
+  set_target_properties(mdparameterfocus PROPERTIES PREFIX "" OUTPUT_NAME "mdparameterfocus" SUFFIX ".mxe64"
+    LIBRARY_OUTPUT_DIRECTORY "${MD_DEVICE_OUTPUT_DIRECTORY}" LIBRARY_OUTPUT_DIRECTORY_RELEASE "${MD_DEVICE_OUTPUT_DIRECTORY}")
+  if(MSVC)
+    set_target_properties(mdengine mdparameterfocus PROPERTIES LINK_FLAGS "/INCREMENTAL:NO")
+  endif()
+endif()

@@ -1,0 +1,1258 @@
+[
+ {
+  "kit": "01 Warehouse Heavy",
+  "bpm": 132,
+  "style": "heavy warehouse techno",
+  "mix_peak": 1.0,
+  "mix_rms_db": -12.0,
+  "clip_fraction": 0.0005,
+  "kick_f0": 51.8,
+  "tracks": {
+   "T01": {
+    "peak": 0.757,
+    "rms": 0.1097,
+    "f0": 51.8,
+    "centroid": 512,
+    "len": 1.625,
+    "machine": "EFM-BD",
+    "vol": 90
+   },
+   "T02": {
+    "peak": 0.353,
+    "rms": 0.0124,
+    "f0": 60.6,
+    "centroid": 2679,
+    "len": 0.037,
+    "machine": "EFM-BD",
+    "vol": 89
+   },
+   "T03": {
+    "peak": 0.449,
+    "rms": 0.0331,
+    "f0": 267.8,
+    "centroid": 5647,
+    "len": 0.295,
+    "machine": "TRX-CP",
+    "vol": 116
+   },
+   "T05": {
+    "peak": 0.201,
+    "rms": 0.0093,
+    "f0": 32.3,
+    "centroid": 8941,
+    "len": 0.118,
+    "machine": "TRX-CH",
+    "vol": 106
+   },
+   "T06": {
+    "peak": 0.241,
+    "rms": 0.025,
+    "f0": 386.3,
+    "centroid": 8967,
+    "len": 0.446,
+    "machine": "TRX-OH",
+    "vol": 116
+   },
+   "T07": {
+    "peak": 0.171,
+    "rms": 0.0109,
+    "f0": 386.9,
+    "centroid": 4464,
+    "len": 0.976,
+    "machine": "TRX-CY",
+    "vol": 108
+   },
+   "T11": {
+    "peak": 0.38,
+    "rms": 0.03,
+    "f0": 164.2,
+    "centroid": 1070,
+    "len": 0.54,
+    "machine": "P-I-MT",
+    "vol": 55
+   },
+   "T12": {
+    "peak": 0.325,
+    "rms": 0.0243,
+    "f0": 208.6,
+    "centroid": 1184,
+    "len": 0.566,
+    "machine": "P-I-MT",
+    "vol": 52
+   },
+   "T16": {
+    "peak": 0.18,
+    "rms": 0.0032,
+    "f0": 37.0,
+    "centroid": 3647,
+    "len": 0.034,
+    "machine": "GND-IM",
+    "vol": 42
+   }
+  }
+ },
+ {
+  "kit": "02 Deep FM",
+  "bpm": 126,
+  "style": "deep / dub-leaning techno",
+  "mix_peak": 1.0,
+  "mix_rms_db": -11.6,
+  "clip_fraction": 1e-05,
+  "kick_f0": 43.1,
+  "tracks": {
+   "T01": {
+    "peak": 0.753,
+    "rms": 0.1267,
+    "f0": 43.1,
+    "centroid": 207,
+    "len": 0.958,
+    "machine": "EFM-BD",
+    "vol": 115
+   },
+   "T02": {
+    "peak": 0.35,
+    "rms": 0.0319,
+    "f0": 49.1,
+    "centroid": 114,
+    "len": 0.251,
+    "machine": "GND-SN",
+    "vol": 126
+   },
+   "T04": {
+    "peak": 0.375,
+    "rms": 0.0094,
+    "f0": 289.4,
+    "centroid": 3944,
+    "len": 1.202,
+    "machine": "EFM-RS",
+    "vol": 74
+   },
+   "T05": {
+    "peak": 0.197,
+    "rms": 0.0048,
+    "f0": 25.6,
+    "centroid": 12766,
+    "len": 0.031,
+    "machine": "EFM-HH",
+    "vol": 53
+   },
+   "T06": {
+    "peak": 0.24,
+    "rms": 0.0141,
+    "f0": 336.5,
+    "centroid": 12715,
+    "len": 0.202,
+    "machine": "EFM-HH",
+    "vol": 56
+   },
+   "T08": {
+    "peak": 0.142,
+    "rms": 0.0015,
+    "f0": 0.0,
+    "centroid": 11458,
+    "len": 0.011,
+    "machine": "GND-NS",
+    "vol": 51
+   },
+   "T09": {
+    "peak": 0.296,
+    "rms": 0.0079,
+    "f0": 145.3,
+    "centroid": 6024,
+    "len": 1.95,
+    "machine": "EFM-CB",
+    "vol": 68
+   },
+   "T13": {
+    "peak": 0.186,
+    "rms": 0.0052,
+    "f0": 25.6,
+    "centroid": 665,
+    "len": 1.924,
+    "machine": "GND-SN",
+    "vol": 127
+   }
+  }
+ },
+ {
+  "kit": "03 Rumble Machine",
+  "bpm": 134,
+  "style": "rumble techno",
+  "mix_peak": 1.0,
+  "mix_rms_db": -12.4,
+  "clip_fraction": 0.00017,
+  "kick_f0": 47.1,
+  "tracks": {
+   "T01": {
+    "peak": 0.757,
+    "rms": 0.039,
+    "f0": 47.1,
+    "centroid": 576,
+    "len": 0.18,
+    "machine": "TRX-BD",
+    "vol": 104
+   },
+   "T02": {
+    "peak": 0.353,
+    "rms": 0.0747,
+    "f0": 45.1,
+    "centroid": 1039,
+    "len": 1.995,
+    "machine": "TRX-BD",
+    "vol": 102
+   },
+   "T03": {
+    "peak": 0.445,
+    "rms": 0.021,
+    "f0": 291.4,
+    "centroid": 4380,
+    "len": 0.202,
+    "machine": "EFM-CP",
+    "vol": 107
+   },
+   "T05": {
+    "peak": 0.169,
+    "rms": 0.0072,
+    "f0": 25.6,
+    "centroid": 8971,
+    "len": 0.107,
+    "machine": "TRX-CH",
+    "vol": 127
+   },
+   "T07": {
+    "peak": 0.169,
+    "rms": 0.0105,
+    "f0": 386.9,
+    "centroid": 4424,
+    "len": 0.894,
+    "machine": "TRX-CY",
+    "vol": 123
+   },
+   "T09": {
+    "peak": 0.298,
+    "rms": 0.0161,
+    "f0": 216.0,
+    "centroid": 803,
+    "len": 1.502,
+    "machine": "TRX-XC",
+    "vol": 73
+   },
+   "T16": {
+    "peak": 0.177,
+    "rms": 0.0037,
+    "f0": 32.3,
+    "centroid": 3467,
+    "len": 0.042,
+    "machine": "GND-IM",
+    "vol": 55
+   }
+  }
+ },
+ {
+  "kit": "04 Detroit Drive",
+  "bpm": 128,
+  "style": "Detroit / 909-style techno",
+  "mix_peak": 1.0,
+  "mix_rms_db": -20.2,
+  "clip_fraction": 0.00026,
+  "kick_f0": 48.4,
+  "tracks": {
+   "T01": {
+    "peak": 0.753,
+    "rms": 0.0337,
+    "f0": 48.4,
+    "centroid": 673,
+    "len": 0.121,
+    "machine": "TRX-BD",
+    "vol": 76
+   },
+   "T03": {
+    "peak": 0.449,
+    "rms": 0.0296,
+    "f0": 363.4,
+    "centroid": 5766,
+    "len": 0.229,
+    "machine": "TRX-CP",
+    "vol": 123
+   },
+   "T04": {
+    "peak": 0.379,
+    "rms": 0.0112,
+    "f0": 266.5,
+    "centroid": 2669,
+    "len": 0.1,
+    "machine": "TRX-RS",
+    "vol": 106
+   },
+   "T05": {
+    "peak": 0.201,
+    "rms": 0.01,
+    "f0": 25.6,
+    "centroid": 8943,
+    "len": 0.129,
+    "machine": "TRX-CH",
+    "vol": 106
+   },
+   "T06": {
+    "peak": 0.241,
+    "rms": 0.0254,
+    "f0": 386.3,
+    "centroid": 8967,
+    "len": 0.516,
+    "machine": "TRX-OH",
+    "vol": 116
+   },
+   "T07": {
+    "peak": 0.171,
+    "rms": 0.0111,
+    "f0": 386.9,
+    "centroid": 4777,
+    "len": 1.108,
+    "machine": "TRX-CY",
+    "vol": 87
+   },
+   "T11": {
+    "peak": 0.383,
+    "rms": 0.0348,
+    "f0": 153.4,
+    "centroid": 580,
+    "len": 0.287,
+    "machine": "TRX-XT",
+    "vol": 70
+   },
+   "T12": {
+    "peak": 0.321,
+    "rms": 0.026,
+    "f0": 198.5,
+    "centroid": 659,
+    "len": 0.227,
+    "machine": "TRX-XT",
+    "vol": 64
+   }
+  }
+ },
+ {
+  "kit": "05 Minimal Click",
+  "bpm": 125,
+  "style": "minimal techno",
+  "mix_peak": 0.97,
+  "mix_rms_db": -16.2,
+  "clip_fraction": 0.0,
+  "kick_f0": 45.8,
+  "tracks": {
+   "T01": {
+    "peak": 0.748,
+    "rms": 0.0608,
+    "f0": 45.8,
+    "centroid": 316,
+    "len": 0.238,
+    "machine": "EFM-BD",
+    "vol": 107
+   },
+   "T04": {
+    "peak": 0.383,
+    "rms": 0.0075,
+    "f0": 262.4,
+    "centroid": 5014,
+    "len": 0.074,
+    "machine": "EFM-RS",
+    "vol": 76
+   },
+   "T05": {
+    "peak": 0.201,
+    "rms": 0.005,
+    "f0": 25.6,
+    "centroid": 13439,
+    "len": 0.058,
+    "machine": "P-I-HH",
+    "vol": 73
+   },
+   "T08": {
+    "peak": 0.139,
+    "rms": 0.0014,
+    "f0": 0.0,
+    "centroid": 12280,
+    "len": 0.009,
+    "machine": "GND-NS",
+    "vol": 62
+   },
+   "T09": {
+    "peak": 0.298,
+    "rms": 0.0093,
+    "f0": 299.4,
+    "centroid": 3714,
+    "len": 0.147,
+    "machine": "P-I-RS",
+    "vol": 52
+   },
+   "T10": {
+    "peak": 0.281,
+    "rms": 0.0083,
+    "f0": 182.4,
+    "centroid": 3002,
+    "len": 0.038,
+    "machine": "EFM-XT",
+    "vol": 76
+   },
+   "T14": {
+    "peak": 0.338,
+    "rms": 0.0098,
+    "f0": 30.3,
+    "centroid": 3164,
+    "len": 1.942,
+    "machine": "E12-RS",
+    "vol": 85
+   },
+   "T16": {
+    "peak": 0.18,
+    "rms": 0.0022,
+    "f0": 31.6,
+    "centroid": 4273,
+    "len": 0.014,
+    "machine": "GND-IM",
+    "vol": 42
+   }
+  }
+ },
+ {
+  "kit": "06 Dub Chamber",
+  "bpm": 120,
+  "style": "dub techno",
+  "mix_peak": 1.0,
+  "mix_rms_db": -17.0,
+  "clip_fraction": 0.00012,
+  "kick_f0": 45.1,
+  "tracks": {
+   "T01": {
+    "peak": 0.765,
+    "rms": 0.0534,
+    "f0": 45.1,
+    "centroid": 466,
+    "len": 0.323,
+    "machine": "TRX-BD",
+    "vol": 86
+   },
+   "T02": {
+    "peak": 0.276,
+    "rms": 0.0196,
+    "f0": 48.4,
+    "centroid": 134,
+    "len": 0.118,
+    "machine": "GND-SN",
+    "vol": 127
+   },
+   "T04": {
+    "peak": 0.379,
+    "rms": 0.0114,
+    "f0": 253.0,
+    "centroid": 2644,
+    "len": 2.0,
+    "machine": "TRX-RS",
+    "vol": 103
+   },
+   "T05": {
+    "peak": 0.199,
+    "rms": 0.0111,
+    "f0": 31.6,
+    "centroid": 8013,
+    "len": 0.139,
+    "machine": "TRX-CH",
+    "vol": 105
+   },
+   "T08": {
+    "peak": 0.14,
+    "rms": 0.0017,
+    "f0": 364.0,
+    "centroid": 10821,
+    "len": 0.013,
+    "machine": "GND-NS",
+    "vol": 48
+   },
+   "T13": {
+    "peak": 0.098,
+    "rms": 0.004,
+    "f0": 145.3,
+    "centroid": 257,
+    "len": 2.0,
+    "machine": "GND-SN",
+    "vol": 127
+   },
+   "T14": {
+    "peak": 0.094,
+    "rms": 0.0033,
+    "f0": 145.3,
+    "centroid": 328,
+    "len": 2.0,
+    "machine": "GND-SN",
+    "vol": 127
+   }
+  }
+ },
+ {
+  "kit": "07 Hypnotic Loop",
+  "bpm": 130,
+  "style": "hypnotic techno",
+  "mix_peak": 1.0,
+  "mix_rms_db": -13.0,
+  "clip_fraction": 0.0001,
+  "kick_f0": 54.5,
+  "tracks": {
+   "T01": {
+    "peak": 0.755,
+    "rms": 0.1013,
+    "f0": 54.5,
+    "centroid": 503,
+    "len": 0.645,
+    "machine": "EFM-BD",
+    "vol": 108
+   },
+   "T02": {
+    "peak": 0.276,
+    "rms": 0.0196,
+    "f0": 48.4,
+    "centroid": 134,
+    "len": 0.118,
+    "machine": "GND-SN",
+    "vol": 127
+   },
+   "T05": {
+    "peak": 0.199,
+    "rms": 0.0162,
+    "f0": 25.6,
+    "centroid": 8958,
+    "len": 0.213,
+    "machine": "TRX-CH",
+    "vol": 105
+   },
+   "T07": {
+    "peak": 0.17,
+    "rms": 0.0102,
+    "f0": 386.9,
+    "centroid": 4275,
+    "len": 0.811,
+    "machine": "TRX-CY",
+    "vol": 112
+   },
+   "T09": {
+    "peak": 0.303,
+    "rms": 0.0064,
+    "f0": 26.2,
+    "centroid": 6442,
+    "len": 1.886,
+    "machine": "EFM-CB",
+    "vol": 69
+   },
+   "T10": {
+    "peak": 0.281,
+    "rms": 0.0063,
+    "f0": 308.2,
+    "centroid": 4255,
+    "len": 1.499,
+    "machine": "EFM-RS",
+    "vol": 66
+   },
+   "T13": {
+    "peak": 0.508,
+    "rms": 0.026,
+    "f0": 86.1,
+    "centroid": 204,
+    "len": 0.08,
+    "machine": "E12-BD",
+    "vol": 61
+   }
+  }
+ },
+ {
+  "kit": "08 Industrial Grind",
+  "bpm": 136,
+  "style": "industrial techno",
+  "mix_peak": 1.0,
+  "mix_rms_db": -11.5,
+  "clip_fraction": 0.00017,
+  "kick_f0": 45.8,
+  "tracks": {
+   "T01": {
+    "peak": 0.757,
+    "rms": 0.1287,
+    "f0": 45.8,
+    "centroid": 1080,
+    "len": 0.669,
+    "machine": "TRX-B2",
+    "vol": 85
+   },
+   "T02": {
+    "peak": 0.349,
+    "rms": 0.0222,
+    "f0": 214.7,
+    "centroid": 3644,
+    "len": 0.224,
+    "machine": "TRX-B2",
+    "vol": 60
+   },
+   "T03": {
+    "peak": 0.453,
+    "rms": 0.0138,
+    "f0": 364.0,
+    "centroid": 3362,
+    "len": 0.25,
+    "machine": "E12-BC",
+    "vol": 104
+   },
+   "T04": {
+    "peak": 0.38,
+    "rms": 0.0089,
+    "f0": 209.3,
+    "centroid": 5100,
+    "len": 0.069,
+    "machine": "EFM-SD",
+    "vol": 72
+   },
+   "T05": {
+    "peak": 0.201,
+    "rms": 0.0042,
+    "f0": 25.6,
+    "centroid": 8510,
+    "len": 0.024,
+    "machine": "E12-CH",
+    "vol": 97
+   },
+   "T06": {
+    "peak": 0.239,
+    "rms": 0.0075,
+    "f0": 255.0,
+    "centroid": 8294,
+    "len": 0.132,
+    "machine": "E12-OH",
+    "vol": 91
+   },
+   "T09": {
+    "peak": 0.299,
+    "rms": 0.0219,
+    "f0": 163.5,
+    "centroid": 1258,
+    "len": 0.138,
+    "machine": "TRX-XC",
+    "vol": 63
+   },
+   "T15": {
+    "peak": 0.281,
+    "rms": 0.0247,
+    "f0": 379.5,
+    "centroid": 6555,
+    "len": 0.788,
+    "machine": "E12-CC",
+    "vol": 98
+   }
+  }
+ },
+ {
+  "kit": "09 Acid Buzz",
+  "bpm": 128,
+  "style": "acid techno",
+  "mix_peak": 1.0,
+  "mix_rms_db": -16.6,
+  "clip_fraction": 0.00044,
+  "kick_f0": 47.8,
+  "tracks": {
+   "T01": {
+    "peak": 0.744,
+    "rms": 0.0358,
+    "f0": 47.8,
+    "centroid": 589,
+    "len": 0.143,
+    "machine": "TRX-BD",
+    "vol": 78
+   },
+   "T03": {
+    "peak": 0.451,
+    "rms": 0.0267,
+    "f0": 364.0,
+    "centroid": 5721,
+    "len": 0.301,
+    "machine": "TRX-CP",
+    "vol": 122
+   },
+   "T05": {
+    "peak": 0.199,
+    "rms": 0.0092,
+    "f0": 74.7,
+    "centroid": 8950,
+    "len": 0.118,
+    "machine": "TRX-CH",
+    "vol": 105
+   },
+   "T06": {
+    "peak": 0.239,
+    "rms": 0.0248,
+    "f0": 386.3,
+    "centroid": 8976,
+    "len": 0.469,
+    "machine": "TRX-OH",
+    "vol": 115
+   },
+   "T13": {
+    "peak": 0.506,
+    "rms": 0.0171,
+    "f0": 25.6,
+    "centroid": 592,
+    "len": 0.042,
+    "machine": "E12-BD",
+    "vol": 52
+   },
+   "T14": {
+    "peak": 0.335,
+    "rms": 0.0113,
+    "f0": 25.6,
+    "centroid": 371,
+    "len": 0.828,
+    "machine": "E12-BD",
+    "vol": 48
+   }
+  }
+ },
+ {
+  "kit": "10 Hard Groove",
+  "bpm": 138,
+  "style": "hard groove / tribal techno",
+  "mix_peak": 1.0,
+  "mix_rms_db": -15.5,
+  "clip_fraction": 0.00019,
+  "kick_f0": 49.8,
+  "tracks": {
+   "T01": {
+    "peak": 0.744,
+    "rms": 0.0741,
+    "f0": 49.8,
+    "centroid": 500,
+    "len": 0.39,
+    "machine": "EFM-BD",
+    "vol": 104
+   },
+   "T03": {
+    "peak": 0.452,
+    "rms": 0.0195,
+    "f0": 362.7,
+    "centroid": 4589,
+    "len": 0.191,
+    "machine": "EFM-CP",
+    "vol": 80
+   },
+   "T04": {
+    "peak": 0.383,
+    "rms": 0.0122,
+    "f0": 279.9,
+    "centroid": 2707,
+    "len": 0.092,
+    "machine": "TRX-RS",
+    "vol": 112
+   },
+   "T05": {
+    "peak": 0.201,
+    "rms": 0.009,
+    "f0": 25.6,
+    "centroid": 8961,
+    "len": 0.117,
+    "machine": "TRX-CH",
+    "vol": 105
+   },
+   "T07": {
+    "peak": 0.171,
+    "rms": 0.0104,
+    "f0": 386.9,
+    "centroid": 4508,
+    "len": 0.811,
+    "machine": "TRX-CY",
+    "vol": 81
+   },
+   "T08": {
+    "peak": 0.141,
+    "rms": 0.0043,
+    "f0": 25.6,
+    "centroid": 10845,
+    "len": 0.047,
+    "machine": "TRX-MA",
+    "vol": 124
+   },
+   "T10": {
+    "peak": 0.281,
+    "rms": 0.0179,
+    "f0": 326.4,
+    "centroid": 2850,
+    "len": 0.14,
+    "machine": "P-I-ML",
+    "vol": 71
+   },
+   "T11": {
+    "peak": 0.376,
+    "rms": 0.0295,
+    "f0": 178.3,
+    "centroid": 1103,
+    "len": 0.505,
+    "machine": "P-I-MT",
+    "vol": 55
+   },
+   "T12": {
+    "peak": 0.321,
+    "rms": 0.0245,
+    "f0": 231.5,
+    "centroid": 1197,
+    "len": 0.518,
+    "machine": "P-I-MT",
+    "vol": 52
+   }
+  }
+ },
+ {
+  "kit": "11 Peak Time",
+  "bpm": 134,
+  "style": "peak-time techno",
+  "mix_peak": 1.0,
+  "mix_rms_db": -16.2,
+  "clip_fraction": 0.00012,
+  "kick_f0": 68.6,
+  "tracks": {
+   "T01": {
+    "peak": 0.755,
+    "rms": 0.0852,
+    "f0": 68.6,
+    "centroid": 459,
+    "len": 0.472,
+    "machine": "EFM-BD",
+    "vol": 115
+   },
+   "T02": {
+    "peak": 0.267,
+    "rms": 0.0205,
+    "f0": 49.1,
+    "centroid": 125,
+    "len": 0.15,
+    "machine": "GND-SN",
+    "vol": 127
+   },
+   "T03": {
+    "peak": 0.45,
+    "rms": 0.0335,
+    "f0": 363.4,
+    "centroid": 5803,
+    "len": 0.504,
+    "machine": "TRX-CP",
+    "vol": 120
+   },
+   "T05": {
+    "peak": 0.2,
+    "rms": 0.0096,
+    "f0": 33.0,
+    "centroid": 8952,
+    "len": 0.122,
+    "machine": "TRX-CH",
+    "vol": 114
+   },
+   "T06": {
+    "peak": 0.24,
+    "rms": 0.0253,
+    "f0": 386.3,
+    "centroid": 8976,
+    "len": 0.516,
+    "machine": "TRX-OH",
+    "vol": 125
+   },
+   "T07": {
+    "peak": 0.17,
+    "rms": 0.0108,
+    "f0": 386.9,
+    "centroid": 4742,
+    "len": 1.233,
+    "machine": "TRX-CY",
+    "vol": 95
+   },
+   "T15": {
+    "peak": 0.258,
+    "rms": 0.0257,
+    "f0": 386.9,
+    "centroid": 5108,
+    "len": 2.0,
+    "machine": "TRX-CY",
+    "vol": 127
+   },
+   "T16": {
+    "peak": 0.177,
+    "rms": 0.0034,
+    "f0": 30.3,
+    "centroid": 3565,
+    "len": 0.039,
+    "machine": "GND-IM",
+    "vol": 45
+   }
+  }
+ },
+ {
+  "kit": "12 Lo-Fi Broken",
+  "bpm": 124,
+  "style": "lo-fi broken techno",
+  "mix_peak": 1.0,
+  "mix_rms_db": -20.1,
+  "clip_fraction": 0.00014,
+  "kick_f0": 45.1,
+  "tracks": {
+   "T01": {
+    "peak": 0.93,
+    "rms": 0.0556,
+    "f0": 45.1,
+    "centroid": 3446,
+    "len": 0.102,
+    "machine": "E12-BD",
+    "vol": 67
+   },
+   "T03": {
+    "peak": 0.449,
+    "rms": 0.0167,
+    "f0": 358.0,
+    "centroid": 5873,
+    "len": 0.105,
+    "machine": "E12-SD",
+    "vol": 95
+   },
+   "T05": {
+    "peak": 0.198,
+    "rms": 0.004,
+    "f0": 25.6,
+    "centroid": 6836,
+    "len": 0.017,
+    "machine": "E12-CH",
+    "vol": 109
+   },
+   "T06": {
+    "peak": 0.239,
+    "rms": 0.0074,
+    "f0": 330.4,
+    "centroid": 7647,
+    "len": 0.078,
+    "machine": "E12-OH",
+    "vol": 106
+   },
+   "T09": {
+    "peak": 0.299,
+    "rms": 0.0063,
+    "f0": 25.6,
+    "centroid": 4225,
+    "len": 0.027,
+    "machine": "E12-BC",
+    "vol": 92
+   },
+   "T13": {
+    "peak": 0.068,
+    "rms": 0.0015,
+    "f0": 25.6,
+    "centroid": 6859,
+    "len": 0.029,
+    "machine": "E12-SH",
+    "vol": 127
+   }
+  }
+ },
+ {
+  "kit": "13 Ambient Pulse",
+  "bpm": 118,
+  "style": "ambient techno",
+  "mix_peak": 1.0,
+  "mix_rms_db": -12.7,
+  "clip_fraction": 3e-05,
+  "kick_f0": 45.1,
+  "tracks": {
+   "T01": {
+    "peak": 0.756,
+    "rms": 0.0672,
+    "f0": 45.1,
+    "centroid": 250,
+    "len": 0.569,
+    "machine": "TRX-BD",
+    "vol": 87
+   },
+   "T02": {
+    "peak": 0.351,
+    "rms": 0.0717,
+    "f0": 49.1,
+    "centroid": 317,
+    "len": 1.605,
+    "machine": "GND-SN",
+    "vol": 117
+   },
+   "T05": {
+    "peak": 0.202,
+    "rms": 0.0022,
+    "f0": 145.3,
+    "centroid": 12357,
+    "len": 0.01,
+    "machine": "GND-NS",
+    "vol": 71
+   },
+   "T10": {
+    "peak": 0.275,
+    "rms": 0.0076,
+    "f0": 364.0,
+    "centroid": 3933,
+    "len": 1.585,
+    "machine": "EFM-RS",
+    "vol": 60
+   },
+   "T13": {
+    "peak": 0.44,
+    "rms": 0.1331,
+    "f0": 97.6,
+    "centroid": 1917,
+    "len": 2.0,
+    "machine": "GND-SN",
+    "vol": 127
+   },
+   "T14": {
+    "peak": 0.34,
+    "rms": 0.174,
+    "f0": 145.3,
+    "centroid": 750,
+    "len": 2.0,
+    "machine": "GND-SN",
+    "vol": 70
+   }
+  }
+ },
+ {
+  "kit": "14 Electro Steel",
+  "bpm": 130,
+  "style": "electro-techno",
+  "mix_peak": 1.0,
+  "mix_rms_db": -10.6,
+  "clip_fraction": 0.00016,
+  "kick_f0": 40.4,
+  "tracks": {
+   "T01": {
+    "peak": 0.755,
+    "rms": 0.1495,
+    "f0": 40.4,
+    "centroid": 537,
+    "len": 0.437,
+    "machine": "TRX-B2",
+    "vol": 115
+   },
+   "T02": {
+    "peak": 0.357,
+    "rms": 0.006,
+    "f0": 25.6,
+    "centroid": 3746,
+    "len": 0.016,
+    "machine": "GND-IM",
+    "vol": 58
+   },
+   "T03": {
+    "peak": 0.456,
+    "rms": 0.0185,
+    "f0": 341.8,
+    "centroid": 5169,
+    "len": 0.14,
+    "machine": "TRX-SD",
+    "vol": 64
+   },
+   "T05": {
+    "peak": 0.201,
+    "rms": 0.0039,
+    "f0": 25.6,
+    "centroid": 12438,
+    "len": 0.025,
+    "machine": "EFM-HH",
+    "vol": 51
+   },
+   "T06": {
+    "peak": 0.243,
+    "rms": 0.0115,
+    "f0": 334.4,
+    "centroid": 12380,
+    "len": 0.151,
+    "machine": "EFM-HH",
+    "vol": 55
+   },
+   "T09": {
+    "peak": 0.298,
+    "rms": 0.0151,
+    "f0": 36.3,
+    "centroid": 2449,
+    "len": 0.099,
+    "machine": "TRX-CL",
+    "vol": 109
+   },
+   "T10": {
+    "peak": 0.281,
+    "rms": 0.0142,
+    "f0": 25.6,
+    "centroid": 2622,
+    "len": 0.054,
+    "machine": "TRX-CB",
+    "vol": 88
+   }
+  }
+ },
+ {
+  "kit": "15 Schranz Pressure",
+  "bpm": 150,
+  "style": "schranz / hard techno",
+  "mix_peak": 1.0,
+  "mix_rms_db": -12.8,
+  "clip_fraction": 0.00025,
+  "kick_f0": 56.5,
+  "tracks": {
+   "T01": {
+    "peak": 0.751,
+    "rms": 0.0905,
+    "f0": 56.5,
+    "centroid": 2039,
+    "len": 0.333,
+    "machine": "TRX-B2",
+    "vol": 85
+   },
+   "T02": {
+    "peak": 0.353,
+    "rms": 0.0087,
+    "f0": 37.7,
+    "centroid": 2903,
+    "len": 0.029,
+    "machine": "EFM-BD",
+    "vol": 75
+   },
+   "T03": {
+    "peak": 0.451,
+    "rms": 0.0181,
+    "f0": 399.7,
+    "centroid": 5102,
+    "len": 0.074,
+    "machine": "EFM-CP",
+    "vol": 81
+   },
+   "T05": {
+    "peak": 0.201,
+    "rms": 0.0088,
+    "f0": 26.2,
+    "centroid": 8880,
+    "len": 0.101,
+    "machine": "TRX-CH",
+    "vol": 117
+   },
+   "T06": {
+    "peak": 0.239,
+    "rms": 0.0211,
+    "f0": 386.3,
+    "centroid": 8939,
+    "len": 0.343,
+    "machine": "TRX-OH",
+    "vol": 118
+   },
+   "T09": {
+    "peak": 0.297,
+    "rms": 0.0042,
+    "f0": 25.6,
+    "centroid": 6012,
+    "len": 0.035,
+    "machine": "EFM-CB",
+    "vol": 68
+   },
+   "T11": {
+    "peak": 0.377,
+    "rms": 0.0296,
+    "f0": 171.6,
+    "centroid": 1089,
+    "len": 0.441,
+    "machine": "P-I-MT",
+    "vol": 55
+   }
+  }
+ },
+ {
+  "kit": "16 Raw Jam",
+  "bpm": 135,
+  "style": "raw jam techno",
+  "mix_peak": 1.0,
+  "mix_rms_db": -16.1,
+  "clip_fraction": 0.00016,
+  "kick_f0": 44.4,
+  "tracks": {
+   "T01": {
+    "peak": 0.902,
+    "rms": 0.0801,
+    "f0": 44.4,
+    "centroid": 3972,
+    "len": 0.867,
+    "machine": "P-I-BD",
+    "vol": 68
+   },
+   "T02": {
+    "peak": 0.276,
+    "rms": 0.0196,
+    "f0": 48.4,
+    "centroid": 134,
+    "len": 0.118,
+    "machine": "GND-SN",
+    "vol": 127
+   },
+   "T03": {
+    "peak": 0.45,
+    "rms": 0.0193,
+    "f0": 193.8,
+    "centroid": 5629,
+    "len": 0.178,
+    "machine": "P-I-SD",
+    "vol": 62
+   },
+   "T05": {
+    "peak": 0.198,
+    "rms": 0.0053,
+    "f0": 25.6,
+    "centroid": 12426,
+    "len": 0.056,
+    "machine": "P-I-HH",
+    "vol": 74
+   },
+   "T06": {
+    "peak": 0.238,
+    "rms": 0.009,
+    "f0": 25.6,
+    "centroid": 10231,
+    "len": 0.158,
+    "machine": "P-I-HH",
+    "vol": 63
+   },
+   "T07": {
+    "peak": 0.172,
+    "rms": 0.0107,
+    "f0": 225.4,
+    "centroid": 8887,
+    "len": 0.373,
+    "machine": "P-I-RC",
+    "vol": 64
+   },
+   "T10": {
+    "peak": 0.282,
+    "rms": 0.0202,
+    "f0": 242.2,
+    "centroid": 1232,
+    "len": 0.438,
+    "machine": "P-I-MT",
+    "vol": 49
+   },
+   "T11": {
+    "peak": 0.378,
+    "rms": 0.0299,
+    "f0": 168.2,
+    "centroid": 1068,
+    "len": 0.528,
+    "machine": "P-I-MT",
+    "vol": 55
+   },
+   "T12": {
+    "peak": 0.315,
+    "rms": 0.0242,
+    "f0": 199.9,
+    "centroid": 1148,
+    "len": 0.522,
+    "machine": "P-I-MT",
+    "vol": 51
+   }
+  }
+ }
+]

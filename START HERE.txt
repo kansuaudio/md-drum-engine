@@ -1,0 +1,68 @@
+MD Drum Engine 1.0.5
+
+A Max for Live instrument powered by an emulated Elektron Machinedrum
+engine: 16 tracks, 49 drum machines, per-track effects and LFOs, plus
+master processing. Sequence it with Ableton Live MIDI clips.
+
+NEW IN 1.0.5:
+- Load Kit... / Save Kit... (top left) save the whole kit - 16 machines
+  with all their settings plus the master effects - to a .mdkit file
+  anywhere you like, and load it back. Kits can be shared.
+- 16 techno kits with matching MIDI grooves in the Presets folder:
+  Load Kit... a .mdkit, then drag the .mid with the same name into a
+  clip slot of the device's track. A .wav demo of each kit is included.
+- Dice: the small die on each track key rolls that track's sound (all
+  SYN knobs plus gentle FX: filter, EQ, AM, SRR, DIST). The big die in
+  the top bar rolls all 16 tracks. Machines, VOL, PAN, DEL/REV and LFOs
+  are never changed by the dice.
+- Reset returns to the default kit. Undo restores the kit as it was
+  before the last die roll, Reset or Load Kit.
+- DEL and REV are on the ROUTE page (the top-bar copies were removed).
+
+NEW IN 1.0.4: Windows support (64-bit). Each track key's red LED now
+flashes clearly whenever that track is triggered by a MIDI note or
+Audition, including the selected track.
+
+Requires Ableton Live 12 Suite (or Live 12 + Max for Live) with Max 9, on
+macOS 12+ (Apple Silicon or Intel) or 64-bit Windows 10/11. The same
+.amxd file contains the Mac and Windows engines.
+
+UPDATING FROM ANY EARLIER VERSION: Save your work, quit Live completely,
+then restart before loading 1.0.5. This release updates the native engine;
+removing the old device alone can leave its previous engine cached.
+
+1. Put MD Drum Engine 1.0.5.amxd in your device library and drag it onto
+   a MIDI track. All device code is inside this single file.
+2. Click Load OS 1.63... and select your external
+   Elektron_SPS1-1UW_OS1.63.syx firmware file. Wait for READY.
+   This firmware is required and is not included in the release.
+3. Select a track with the bottom buttons. Click the machine name on the
+   red display to choose a drum machine. Audition previews that track.
+4. Write notes in a Live MIDI clip: MIDI 36-51 (C1-D#2 in Live) trigger
+   tracks 01-16. The display shows the selected track's trigger note.
+   Each track key's red LED flashes when that track is hit.
+   Panic or MIDI CC120 (All Sound Off) stops sounds and effect tails.
+5. Use SYN, FX, ROUTE, LFO and MASTER to shape the sound. Editor opens
+   the larger panel. Drag knobs vertically; hold Shift for fine changes.
+6. For Echo or Reverb, select the track you are playing, open ROUTE and
+   raise its DEL or REV knob. Each track has its own sends. Try 30-80
+   (maximum 127).
+   Under MASTER > Echo or Reverb, keep LEV above zero. Sends start at
+   zero, so changing MASTER alone does not add an effect.
+7. To use Ableton's LFO, click its Map button, then click the desired
+   device knob. The mapping stays on that track's parameter when you
+   switch tracks or pages in the device.
+8. Save your Live Set or device preset. Keep the external firmware file
+   in a permanent location: the device saves its absolute path.
+
+IF OS LOADING FAILS: Check your OS/Live/Max versions and restart Live
+fully after updating. Select the correct OS file again and make sure
+its drive is connected. If the engine is unavailable or loading fails,
+open Max Console and keep the full error text, computer model, OS and Live/Max
+versions for diagnosis. The engine availability checks and error
+details introduced in 1.0.1 are retained.
+
+README.md contains the full guide. Source and licenses are included for
+reference and are not needed to load the device.
+
+Independent project based on K-X420/ModuleDrum; not an Elektron product.

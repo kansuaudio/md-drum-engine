@@ -1,0 +1,22 @@
+# Source-only repository: builds, releases, QA artifacts and vendored
+# dependencies stay local (CI fetches the pinned public dependencies).
+/*
+!/.gitignore
+!/.github/
+!/CMakeLists.txt
+!/src/
+!/tools/
+!/device/
+!/LICENSE
+!/licenses/
+!/THIRD_PARTY_NOTICES.md
+!/README.md
+!/START HERE.txt
+/tools/__pycache__/
+/device/*.mxo/
+/device/*.mxe64
+/device/*.amxd
+/device/*.maxpat
+.DS_Store
+!/presets/
+/presets/**/*.wav

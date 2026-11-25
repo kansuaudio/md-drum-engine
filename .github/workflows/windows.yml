@@ -1,0 +1,93 @@
+# Builds the Windows x64 Max externals (mdcoreengine~.mxe64, mdparameterfocus.mxe64)
+# and runs the native engine tests on real Windows with the user-downloadable OS 1.63.
+# The firmware is fetched from Elektron at run time and is never stored or uploaded.
+name: windows
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+env:
+  MODULEDRUM_COMMIT: bb0e4472425bc88e507b2352b1dd089f8b1447e7
+  DSP56300_COMMIT: c051afad31612c2d2c7a81a7ab23e1c5ac9e61af
+  MAX_SDK_BASE_COMMIT: c03a2922a2a8ff149165a1e2ea134e9321d6e202
+  OS_ZIP_URL: https://www.elektron.se/wp-content/uploads/2024/09/Elektron_SPS1-1UW_OS1.63.zip
+  OS_SHA256: a58cd61f2efacfb07add0c643162fb4365c30e73831f2021c17b4aa3b42cabd5
+
+jobs:
+  build:
+    runs-on: windows-2022
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Fetch pinned dependencies
+        shell: bash
+        run: |
+          set -euo pipefail
+          fetch() { git init -q "$1"; git -C "$1" remote add origin "$2"; git -C "$1" fetch -q --depth 1 origin "$3"; git -C "$1" checkout -q FETCH_HEAD; }
+          fetch vendor/ModuleDrum https://github.com/K-X420/ModuleDrum.git "$MODULEDRUM_COMMIT"
+          fetch vendor/max-sdk-base https://github.com/Cycling74/max-sdk-base.git "$MAX_SDK_BASE_COMMIT"
+          fetch vendor/dsp56300 https://github.com/dsp56300/dsp56300.git "$DSP56300_COMMIT"
+          git -C vendor/dsp56300 submodule update -q --init --depth 1 source/asmjit
+          git -C vendor/dsp56300 apply --whitespace=nowarn "$PWD/vendor/ModuleDrum/ext/patches/0001-dsp56300-mnm.patch"
+
+      - name: Configure
+        shell: bash
+        run: >
+          cmake -S . -B build -G "Visual Studio 17 2022" -A x64
+          -DMD_CORE_FROM_SOURCE=ON
+          -DMNM_DSP56300_DIR="$PWD/vendor/dsp56300"
+          -DMD_DEVICE_OUTPUT_DIRECTORY="$PWD/out"
+
+      - name: Build
+        run: cmake --build build --config Release --parallel --target mdengine mdparameterfocus engine-smoke fx-regression native-audit
+
+      - name: Check external exports and dependencies
+        shell: pwsh
+        run: |
+          $vs = & "${env:ProgramFiles(x86)}\Microsoft Visual Studio\Installer\vswhere.exe" -latest -property installationPath
+          $dumpbin = Get-ChildItem "$vs\VC\Tools\MSVC" -Recurse -Filter dumpbin.exe | Where-Object { $_.FullName -match 'Hostx64\\x64' } | Select-Object -First 1
+          foreach ($f in 'out\mdcoreengine~.mxe64','out\mdparameterfocus.mxe64') {
+            if (!(Test-Path $f)) { throw "missing $f" }
+            Write-Host "== $f"
+            $exports = & $dumpbin.FullName /exports $f | Out-String
+            if ($exports -notmatch 'ext_main') { throw "$f does not export ext_main" }
+            $deps = & $dumpbin.FullName /dependents $f | Out-String
+            Write-Host $deps
+            if ($deps -match '(?i)msvcp\d+|vcruntime\d+') { throw "$f needs the VC++ redistributable" }
+          }
+
+      - name: Download OS 1.63 (test only, not stored)
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force fw | Out-Null
+          Invoke-WebRequest -Uri $env:OS_ZIP_URL -OutFile fw\os.zip
+          Expand-Archive fw\os.zip -DestinationPath fw -Force
+          $syx = Get-ChildItem fw -Recurse -Filter 'Elektron_SPS1-1UW_OS1.63.syx' | Select-Object -First 1
+          $hash = (Get-FileHash $syx.FullName -Algorithm SHA256).Hash.ToLower()
+          if ($hash -ne $env:OS_SHA256) { throw "unexpected OS hash $hash" }
+          "OS_SYX=$($syx.FullName)" | Out-File -FilePath $env:GITHUB_ENV -Append -Encoding utf8
+
+      - name: Native engine tests
+        shell: pwsh
+        run: |
+          New-Item -ItemType Directory -Force results | Out-Null
+          .\build\Release\engine-smoke.exe $env:OS_SYX results
+          if ($LASTEXITCODE -ne 0) { throw "engine-smoke failed" }
+          .\build\Release\fx-regression.exe $env:OS_SYX
+          if ($LASTEXITCODE -ne 0) { throw "fx-regression failed" }
+          .\build\Release\native-audit.exe $env:OS_SYX
+          if ($LASTEXITCODE -ne 0) { throw "native-audit failed" }
+          Remove-Item -Recurse -Force fw
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: md-drum-engine-windows-x64
+          path: |
+            out/*.mxe64
+            results/*.json
+          if-no-files-found: error
